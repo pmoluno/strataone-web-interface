@@ -8,6 +8,12 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
+// Connect to the database
+mongoose.connect(databaseConfig.url, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to the database'))
+  .catch(err => console.error('Database connection error:', err));
+
+
 // Middleware
 app.use(cookieParser());
 app.use(express.json());
