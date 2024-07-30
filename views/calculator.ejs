@@ -1,0 +1,341 @@
+<section class="home-hero-section pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-5">
+          <div class="hero-fancy-button">
+              <div class="row">
+                <div class="col-12 falling-element">
+                  <a class="btn btn-fancy-hero rounded-pill btn-pulse" href="/platform"><%= stake_now %></a>
+                </div>
+               
+                <div class="col-6 falling-element-2">
+                  <a
+                    class="btn btn-fancy-hero rounded-pill btn-pulse"
+                    href="/"
+                    ><%= home %></a
+                  >
+                </div>
+                <div class="col-6 falling-element-2">
+                  <a class="btn btn-fancy-hero rounded-pill btn-pulse" href="/network"
+                    ><%= network %></a
+                  >
+                </div>
+              </div>
+            </div>
+          <div class="hero-content mb-5 fhfhf">
+            <h1><%= calculate_your_rewards %></h1>
+            <p><%= discover_earnings %></p>
+          </div>
+          <div class="auto-sta">
+              <p><%= auto_stake %></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="the-calculator">
+            <h3><%= calculate_reward %></h3>
+            <div class="the-amount">
+              <div class="row">
+                <div class="col-8">
+                  <input
+                    type="number"
+                    name="amount"
+                    value="0"
+                    id="amount inputField"
+                    class="form-control inputField number-input"
+                    
+                  />
+                  <p class="pe-2 ps-2 white" id="totalPrice">$<span>0.00</span></p>
+                </div>
+                <div class="col-4" style="text-align: right">
+                  <style>
+                    .modal {
+                      display: none;
+                      position: absolute;
+                      z-index: 1000000000000;
+                    }
+  
+                    .modal-content {
+                      background-color: rgb(50, 50, 50);
+                      /* background-color: #fefefe; */
+                      color: #FFFFFF;
+                      padding: 20px;
+                      border: 1px solid #888;
+                      max-width: 60%; /* Set max-width to prevent overflow */
+                      width: 400px; /* Let the content determine width */
+                      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for visual effect */
+                    }
+  
+                    #options-list {
+                      list-style-type: none;
+                      padding: 0;
+                      margin: 0; /* Remove default margin */
+                    }
+  
+                    #options-list li {
+                      cursor: pointer;
+                      padding: 10px;
+                    }
+  
+                    #options-list li:hover {
+                      background-color: #000000;
+                      border-radius: 10px;
+                    }
+                  </style>
+  
+                  <div class="select-container">
+                    <button id="select-button"><img src="/images/coin-icons/sentinel.webp" alt="" id="select-button-image" class="cal-img"> <span id="select-button-ticker">DVPN</span></button>
+                    <div class="modal" id="modal" style="width: max-content; overflow-x: hidden !important;">
+                      <div class="modal-content" style="text-align: left; overflow-x: hidden !important;">
+                        <ul id="options-list">
+                          <% for(let i = 0; i < networks.length; i++){%>
+                          <li data-value="<%= networks[i].ticker %>">
+                            <p class="d-none price-<%= networks[i].ticker %>"></p>
+                            <img
+                              src="<%= networks[i].image %>"
+                              alt=""
+                              class="cal-img mt-1 img-<%= networks[i].ticker %>"
+                            /><span class=""><%= networks[i].name %></span> <span class="green-percent"><%= networks[i].apr %> APR</span>
+                            <% let theName = networks[i].name; %>
+                          <% let thePriceZ = thePrice[theName].price; %>
+                          <% let theChangeZ = thePrice[theName].change; %>
+                          <div class="d-none pricez">
+                              <%= thePriceZ %>
+                          </div>
+                          <div class="d-none coin-apr">
+                            <%= networks[i].apr %>
+                        </div>
+                         
+                          </li>
+                          
+                          <%  }  %>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="earnings">
+              <div class="row">
+                  <div class="col-7">
+                      <h4 class="white pt-3"><%= earnings %></h4>
+                  </div>
+                  <div class="col-5">
+                      <nav class="the-shallow center">
+                          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active www" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><%= regular %> </button>
+                            <button class="nav-link www" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><%= the_auto_save %></button>
+                          </div>
+                        </nav>
+                      
+                  </div>
+              </div>
+              <div class="the-earning-value">
+                  <div class="tab-content" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                          <div class="autostake pt-3">
+                              <div class="d-flex">
+                                  <div class="pb-2">
+                                      <p class="the-name"><%= apr %></p>
+                                  </div>
+                                  <div class="pb-2 ms-auto">
+                                      <p><span class="green-percent main-apr">18.91% APR</span></p>
+                                  </div>
+                              </div>
+                              <div class="d-flex">
+                                  <div class="pb-2">
+                                      <p class="the-name"><%= daily %></p>
+                                      <p class="the-apr dailyApr">+0.00 %</p>
+                                  </div>
+                                  <div class="pb-2 ms-auto right">
+                                      <p class="m-0 p-0 token-price"><span class="tokenVDaily">0.000000</span><span class="tokenid"> DVPN</span></p>
+                                      <p class="the-apr grayyy"> <span class="tokenPDaily"> $0.000000</span></p>
+                                  </div>
+                              </div>
+                              <div class="d-flex">
+                                  <div class="pb-2">
+                                      <p class="the-name"><%= monthly %></p>
+                                      <p class="the-apr monthlyApr">+0.00 %</p>
+                                  </div>
+                                  <div class="pb-2 ms-auto right">
+                                    <p class="m-0 p-0 token-price"><span class="tokenVMonthly">0.000000</span><span class="tokenid"> DVPN</span></p>
+                                    <p class="the-apr grayyy"> <span class="tokenPMonthly"> $0.000000</span></p>
+                                  </div>
+                              </div>
+                              <div class="d-flex">
+                                  <div class="pb-2">
+                                      <p class="the-name"><%= yearly %></p>
+                                      <p class="the-apr yearlyApr">+0.00 %</p>
+                                  </div>
+                                  <div class="pb-2 ms-auto right">
+                                    <p class="m-0 p-0 token-price"><span class="tokenVYearly">0.000000</span><span class="tokenid"> DVPN</span></p>
+                                    <p class="the-apr grayyy"> <span class="tokenPYearly"> $0.000000</span></p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
+                    </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary form-control btn-style-6 pt-2 pb-2 mt-3"> <%= start_earning %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home-network-section">
+    <div class="container">
+      <h2  class="pb-5"><%= our_networks %></h2>
+      <div class="networks">
+        <div class="owl-carousel owl-theme">
+          <% for(let i = 0; i < networks.length; i++){ %>
+          <div class="item">
+              <div class="the-coin">
+                <div class="the-img">
+                  <img src="<%= networks[i].image %>" alt="" class="img-fluid" />
+                </div>
+                <div></div>
+                <h3><%= networks[i].name %></h3>
+                <h4><%= networks[i].ticker %></h4>
+                <p><span><%= networks[i].apr %> APR</span></p>
+              </div>
+            </div>
+            <% } %>
+            
+        </div>
+      </div>
+      <div class="center">
+          <a href="/network" class="btn btn-secondary btn-style-5"><%= stake_all %></a>
+      </div>
+    </div>
+  </section>
+  
+  
+  <script>
+    let globalPrice = `<%= thePrice["Sentinel"].price %>`;
+    let globalApr = 18.91;
+    document.addEventListener("DOMContentLoaded", function() {
+  const selectButton = document.querySelector("#select-button");
+  const selectButtonTicker = document.getElementById("select-button-ticker");
+  const selectButtonImage = document.querySelector("#select-button-image");
+  const modal = document.getElementById("modal");
+  const optionsList = document.getElementById("options-list");
+
+ // Function to open modal
+ selectButtonTicker.addEventListener("click", function() {
+    modal.style.display = "block";
+    modal.style.left = selectButton.offsetLeft + "px";
+    // modal.style.left = "50px";
+    modal.style.transform = "translateX(-50%)"; // Adjus
+    modal.style.top = (selectButton.offsetTop + selectButton.offsetHeight) + "px";
+  });
+
+  selectButtonImage.addEventListener("click", function() {
+    modal.style.display = "block";
+    modal.style.left = selectButton.offsetLeft + "px";
+    // modal.style.left = "50px";
+    modal.style.transform = "translateX(-50%)"; // Adjus
+    modal.style.top = (selectButton.offsetTop + selectButton.offsetHeight) + "px";
+  });
+
+  // Function to open modal
+  selectButton.addEventListener("click", function() {
+    modal.style.display = "block";
+    modal.style.left = selectButton.offsetLeft + "px";
+    // modal.style.left = "50px";
+    modal.style.transform = "translateX(-50%)"; // Adjus
+    modal.style.top = (selectButton.offsetTop + selectButton.offsetHeight) + "px";
+  });
+
+  // Function to close modal
+  optionsList.addEventListener("click", function(e) {
+    // Find the closest LI ancestor of the clicked element
+    const liElement = e.target.closest('LI');
+
+    // Check if the clicked element or any of its ancestors are LI elements
+    if (liElement) {
+        const selectedOptionValue = liElement.getAttribute("data-value");
+        const selectedOptionImage = liElement.querySelector('.cal-img').getAttribute("src");
+        const selectedOptionPrice = liElement.querySelector('.pricez').textContent;
+        const selectedOptionApr = liElement.querySelector('.coin-apr').textContent;
+        globalPrice = Number(selectedOptionPrice);
+        globalApr = Number(selectedOptionApr);
+        selectButtonTicker.textContent = selectedOptionValue;
+        selectButtonImage.src = selectedOptionImage;
+
+        let tokenid = document.querySelectorAll('.tokenid');
+        tokenid.forEach(element => {
+            element.textContent = " " + selectedOptionValue;
+        });
+
+        let dailyApr = (globalApr  / 365  * 1).toFixed(2);
+        let monthlyApr = (globalApr / 365 * 28).toFixed(2);
+        let yearlyApr = (globalApr).toFixed(2);
+        $(".dailyApr").text("+" + dailyApr + " %");
+        $(".monthlyApr").text("+" + monthlyApr + " %");
+        $(".yearlyApr").text("+" +  yearlyApr + " %");
+        $(".main-apr").text(yearlyApr + "% APR");
+
+        modal.style.display = "none";
+    }
+});
+
+
+  // Close modal when clicking anywhere outside the modal
+  window.addEventListener("click", function(e) {
+    if (!modal.contains(e.target) && e.target !== selectButton & e.target!== selectButtonTicker && e.target !== selectButtonImage) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+
+
+$(document).ready(function(){
+  let previousInput = 0; // Variable to store the previous input value
+  
+  $(".inputField").on("input", function(){
+      const inputValue = $(this).val();
+      
+      console.log("the val: " + inputValue);
+      // Check if the input value has changed and is a valid number
+      if (!isNaN(inputValue) && inputValue !== previousInput) {
+          const totalPrice = inputValue * globalPrice; // Calculate the total price
+          $("#totalPrice").text("$" + totalPrice.toFixed(2)); // Display the total price
+          previousInput = inputValue; // Update the previous input value
+          
+          let dailyApr = (globalApr  / 365  * 1).toFixed(2);
+          let monthlyApr = (globalApr / 365 * 28).toFixed(2);
+          let yearlyApr = (globalApr).toFixed(2);
+
+          let tokenPDaily = ((dailyApr / 100) * totalPrice).toFixed(2);
+          let tokenPMonthly = ((monthlyApr / 100) * totalPrice).toFixed(2);
+          let tokenPYearly = ((yearlyApr / 100) * totalPrice).toFixed(2);
+
+          let tokenVDaily = ((dailyApr / 100) * inputValue).toFixed(2);
+          let tokenVMonthly = ((monthlyApr / 100) * inputValue).toFixed(2);
+          let tokenVYearly = ((yearlyApr / 100) * inputValue).toFixed(2);
+
+          $(".tokenPDaily").text("$" + tokenPDaily); // Display the total price
+          $(".tokenPMonthly").text("$" + tokenPMonthly); // Display the total price
+          $(".tokenPYearly").text("$" + tokenPYearly); // Display the total price
+          $(".tokenVDaily").text(tokenVDaily); // Display the total price
+          $(".tokenVMonthly").text(tokenVMonthly); // Display the total price
+          $(".tokenVYearly").text(tokenVYearly); // Display the total price
+         
+
+      }
+  });
+});
+
+
+</script>
+
+
+
+
+
+
+
+  <script src="/js/network.js"></script>
