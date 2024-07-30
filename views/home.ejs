@@ -1,0 +1,177 @@
+<!-- <div class="js-cursor">
+    <div class="c-cursor__inner c-cursor__inner--circle js-cursor-inner">
+      <div class="c-cursor__side c-cursor__side--left js-cursor-right"></div>
+      <div class="c-cursor__side c-cursor__side--right js-cursor-left"></div>
+    </div>
+  </div> -->
+  <section class="home-hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="hero-content">
+            <h1><%= super_app %></h1>
+            <p>
+              <%= stake_reward %>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="hero-fancy-button">
+            <div class="row">
+              <div class="col-12 falling-element">
+                <a class="btn btn-fancy-hero rounded-pill btn-pulse" href="/platform"><%= stake_now %></a>
+              </div>
+              <div class="col-6 falling-element-2">
+                <a class="btn btn-fancy-hero rounded-pill btn-pulse" href="/calculator"
+                  ><%= calculator %></a
+                >
+              </div>
+              <div class="col-6 falling-element-2">
+                <a
+                  class="btn btn-fancy-hero rounded-pill btn-pulse"
+                  href="/contact-us"
+                  ><%= contact %></a
+                >
+              </div>
+              <div class="col-12 falling-element">
+                <a
+                  class="btn btn-fancy-hero rounded-pill btn-pulse"
+                  href="/about-us"
+                  ><%= about_us %></a
+                >
+              </div>
+              <div class="col-6 falling-element-2">
+                <a
+                  class="btn btn-fancy-hero rounded-pill btn-pulse"
+                  href="https://docs.strataone.io"
+                  ><%= guide %></a
+                >
+              </div>
+              <div class="col-6 falling-element-2">
+                <a class="btn btn-fancy-hero rounded-pill btn-pulse" href="/network"
+                  ><%= network %></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="total-delegates">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-5">
+          <h2><%= stake_statistics %></h2>
+        </div>
+        <div class="col-md-6">
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                <h2>13</h2>
+                <h6 class="pt-2"><%= networkz %></h6>
+              </div>
+              <div class="col-4">
+                <h2>$2.7M+</h2>
+                <h6 class="pt-2"><%= assets_staked %></h6>
+  
+              </div>
+              <div class="col-4">
+                <h2>1.6k+</h2>
+                <h6 class="pt-2"><%= delegators %></h6>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home-network-section">
+    <div class="container">
+      <h2  class="pb-5"><%= our_networks %></h2>
+      <div class="networks">
+        <div class="owl-carousel owl-theme">
+          <% for(let i = 0; i < networks.length; i++){ %>
+          <div class="item">
+              <div class="the-coin">
+                <div class="the-img">
+                  <img src="<%= networks[i].image %>" alt="" class="img-fluid" />
+                </div>
+                <div></div>
+                <h3><%= networks[i].name %></h3>
+                <h4><%= networks[i].ticker %></h4>
+                <p><span><%= networks[i].apr %> APR</span></p>
+              </div>
+            </div>
+            <% } %>
+            
+        </div>
+      </div>
+      <div class="center">
+          <a href="/network" class="btn btn-secondary btn-style-5"><%= stake_all %></a>
+      </div>
+    </div>
+  </section>
+  <section class="the-home-c">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 pt-5 mt-5 mb-5 center">
+          <h2><%= rewards_calculator %></h2>
+          <p><%= discover_earnings %>
+  
+            </p>
+            <a href="/calculator" class="btn btn-secondary btn-style-5"><%= calculate_rewards %></a>
+        </div>
+        <div class="col-md-6">
+          <img src="/images/calculator.png" alt="" class="img-fluid" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="the-home-c">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 pt-5 mt-5 mb-5 center">
+          <h2>Portfolio Tracker</h2>
+          <p>A portfolio tracker tool that helps investors monitor and manage their investment holdings, including stocks, cryptocurrencies, and other assets, by providing real-time updates on their performance and value.
+            </p>
+            <a href="#" class="btn btn-secondary btn-style-5">Track My Portfolio!</a>
+        </div>
+        <div class="col-md-6">
+          <img src="/images/portofolio-manager.png" alt="" class="img-fluid" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Networks",
+        "item": "https://strataone.io/network"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculator",
+        "item": "https://strataone.io/calculator"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "About",
+        "item": "https://strataone.io/about"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Blog",
+        "item": "https://strataone.io/blog"
+      },
+      ]
+    }
+    </script>
