@@ -1,0 +1,97 @@
+<style>
+  #blog-post-body p{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    color: #0e0e1a;
+  }
+</style>
+<section id="single-post">
+    <div class="row">
+      <div class="col-md-8">
+        <img
+          src="<%= post.image %>"
+          class="img-fluid single-post-featured-image cover-img-feature"
+          alt=""
+        />
+        <div class="share-and-post-audio">
+        </div>
+        <article class="single-blog-post">
+          <h1><%= post.title %></h1>
+          <div class="cartegory-and-date">
+              <p class="mb-2 mt-2">
+                <%= post.category %> <span class="small-bold">| <%= post.createdAt.toDateString() %></span>
+              </p>
+            </div>
+          <div id="blog-post-body">
+            <script>
+              let newPost =  "<%= post.content.toString() %>"; 
+              let postData = document.getElementById('blog-post-body');
+              postData.innerHTML = newPost;
+              postData.innerHTML = postData.textContent;
+            </script>
+          </div>
+        </article>
+        <div class="row pt-5 pb-1">
+            <div class="col">
+                <a href="/blog" class="btn btn-post btn-pulse form-control">BACK</a>
+            </div>
+            <div class="col">
+                <a href="#" class="btn btn-post btn-pulse form-control">NEXT</a>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="blog-home-cartegory container" style="text-align: left;">
+            <h4 class="pb-3 pt-5">Featured Article</h4>
+            <div class="row">
+                <% if(posts.length > 0){ %>
+                <% for(let i = 0 ; i < 1; i++){ %>
+                  <div class="col-md-12 mb-4">
+                    <div class="blog-home-post-snipet">
+                      <div class="blog-home-img">
+                        <img
+                        class="img-fluid"
+                        style="height: 200px"
+                        alt=""
+                        srcset=""
+                        src= <%= posts[i].image %>
+                        />
+                      </div>
+                      <div class="blog-home-content container">
+                        <div class="cartegory-and-date">
+                          <p class="mb-1 pt-3">
+                            <%= posts[i].category %> <span class="small-bold">| <%= posts[i].createdAt.toDateString() %></span>
+                          </p>
+                        </div>
+                        <h2  class="pb-3">
+                          <a href="/blog/<%= posts[i].slug %>">
+                          <%= posts[i].title %>
+                          </a>
+                        </h2>
+                        <p class="blog-post-description  d-none">
+                          <%= posts[i].description.substring(0, 65) + "..." %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <%} } %>
+              </div>
+            <h4 class="pb-3 pt-5">Follow Us On Socials</h4>
+            <div class="">
+                <a href="#" class="footer-icon"
+                  ><i class="bi bi-twitter"></i
+                ></a>
+                <a href="#" class="footer-icon"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" class="footer-icon"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+              </div>
+            
+          </div>
+      </div>
+    </div>
+  </section>
+  
