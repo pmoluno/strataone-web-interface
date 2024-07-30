@@ -1,0 +1,289 @@
+<section class="home-hero-section pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="hero-content">
+            <h1><%= networkz %></h1>
+            <p><%= browse_networks %></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="hero-fancy-button">
+              <div class="row">
+                <div class="col-12 falling-element">
+                  <a
+                    class="btn btn-fancy-hero rounded-pill btn-pulse"
+                    href="/platform"
+                    ><%= stake_now %></a
+                  >
+                </div>
+  
+                <div class="col-6 falling-element-2">
+                  <a class="btn btn-fancy-hero rounded-pill btn-pulse" href="/"
+                    ><%= home %></a
+                  >
+                </div>
+                <div class="col-6 falling-element-2">
+                  <a
+                    class="btn btn-fancy-hero rounded-pill btn-pulse"
+                    href="/calculator"
+                    ><%= calculator %></a
+                  >
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="the-network">
+    <div class="container">
+      <div class="row">
+        <% for(let i = 0; i < networks.length; i++){ %>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+          <div class="the-set-networks activate-sidebar">
+            <div class="network-name d-flex">
+              <img
+                src="<%= networks[i].image %>"
+                class="stake-img"
+                alt=""
+              />
+              <div>
+                <h4><%= networks[i].name %> <span><%= networks[i].ticker %></span></h4>
+                <p><span class="green-percent"><%= networks[i].apr %> % APR</span></p>
+              </div>
+            </div>
+            <div class="the-staked d-flex">
+              <div class="stake-title">
+                <p>Staked</p>
+                <p>TVL</p>
+              </div>
+              <div class="stake-value">
+                <p class="the-stakedz"><%= networks[i].staked %></p>
+                <p class="the-tvlz"><%= networks[i].tvl %></p>
+              </div>
+            </div>
+            <div class="d-none twitterz"><%= networks[i].twitter %></div>
+            <div class="d-none githubz"><%= networks[i].github %></div>
+            <div class="d-none websitez"><%= networks[i].website %></div>
+            <div class="d-none descriptionz"><%= networks[i].description %></div>
+            <div class="d-none namez"><%= networks[i].name %></div>
+            <% let theName = networks[i].name; %>
+            <% let thePriceZ = thePrice[theName].price; %>
+            <% let theChangeZ = thePrice[theName].change; %>
+            <div class="d-none pricez">
+                <%= thePriceZ %>
+            </div>
+            <div class="d-none changez">
+              <%= theChangeZ %>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </section>
+  <button id="the-open-sidebar"  class="d-none">Open Sidebar</button>
+  
+  <div id="the-sidebar" class="the-sidebar">
+    <div class="the-sidebar-content">
+      <button id="the-close-sidebar" class="d-none">Close Sidebar</button>
+      <div class="the-set-networks mb-3">
+        <div class="network-name d-flex">
+          <img src="/images/coin-icons/mantle.webp" class="stake-img" alt="" />
+          <div>
+            <h4>Mantle Asset <span>MTA</span></h4>
+            <p><span class="green-percent">7.5% APR</span></p>
+          </div>
+        </div>
+        <a
+          class="btn btn-secondary mb-2 btn-style-5 pt-2 pb-2 form-control the-stake-link"
+          style="border-radius: 10px"
+          href="/platform"
+          ><%= stake %></a
+        >
+        <a
+          class="btn btn-secondary mb-2 btn-style-2 pt-3 pb-3 form-control"
+          style="border-radius: 10px"
+          href="/calculator"
+          ><%= calculate_reward %></a
+        >
+      </div>
+      <div class="the-set-networks mb-3">
+        <div class="network-name d-flex">
+          <div>
+            <h4><%= stats %></h4>
+          </div>
+        </div>
+        <div class="the-staked d-flex">
+          <div class="stake-title">
+            <p><%= price %></p>
+            <p><%= change %></p>
+            <p>TVL</p>
+          </div>
+          <div class="stake-value">
+            <p class="the-stakedy">20.45k MTA</p>
+            <p class="the-changey">20.45k MTA</p>
+            <p class="the-tvly">12.17M</p>
+          </div>
+        </div>
+      </div>
+      <div class="the-set-networks mb-3">
+        <div class="network-name mbmb d-flex">
+          <a class="twitter" href="" target="_blank">Twitter</a>
+          <a class="github" href="" target="_blank">Github</a>
+          <a class="website" href="" target="_blank">Website</a>
+        </div>
+      </div>
+      <div class="the-set-networks mb-3">
+        <div class="network-name d-flex">
+          <p style="color: #ffffff; font-size: 10px;" class="description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt rerum
+            in incidunt quas exercitationem quia aliquam vero magnam unde
+            voluptate nesciunt voluptatum, provident velit harum?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="the-overlay" class="the-overlay"></div>
+  <style>
+    .the-sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px; /* Initially hidden */
+      width: 300px;
+      height: 100%;
+      background-color: black;
+      transition: right 0.3s ease;
+      z-index: 10000; /* Ensure sidebar appears above other content */
+    }
+  
+    .the-sidebar-content {
+      padding: 20px;
+      color: white;
+    }
+  
+    .the-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      display: none; /* Initially hidden */
+      z-index: 9999; /* Ensure overlay appears below sidebar */
+    }
+  </style>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const openSidebarButton = document.getElementById("the-open-sidebar");
+      const closeSidebarButton = document.getElementById("the-close-sidebar");
+      const sidebar = document.getElementById("the-sidebar");
+      const overlay = document.getElementById("the-overlay");
+      const informationCards = document.querySelectorAll(".activate-sidebar");
+    
+      // Function to update sidebar content with network details
+      function updateSidebarContent(network) {
+        const networkImage = document.querySelector("#the-sidebar .network-name img");
+        const networkTwitter= document.querySelector("#the-sidebar .network-name .twitter");
+        const networkGithub = document.querySelector("#the-sidebar .network-name .github");
+        const networkWebsite = document.querySelector("#the-sidebar .network-name .website");
+        const networkDescription = document.querySelector("#the-sidebar .network-name .description");
+          const networkName = document.querySelector("#the-sidebar .network-name h4");
+          const networkTicker = document.querySelector("#the-sidebar .network-name span");
+          const apr = document.querySelector("#the-sidebar .network-name p .green-percent");
+          const stakedAmount = document.querySelector("#the-sidebar .the-tvly");
+          const changeAmount = document.querySelector("#the-sidebar .the-changey");
+          const tvl = document.querySelector("#the-sidebar .the-stakedy");
+          const tsl = document.querySelector("#the-sidebar .the-stake-link");
+  
+          networkImage.src = network.image;
+          networkName.textContent = network.name;
+          networkTicker.textContent = network.ticker;
+          networkTwitter.href = network.twitter;
+          networkGithub.href = network.github;
+          networkWebsite.href = network.website;
+          tsl.href = `/faq/${network.namez}`;
+          networkDescription.textContent = network.description;
+          apr.textContent = `${network.apr}% APR`;
+          stakedAmount.textContent = network.stakedAmount;
+          changeAmount.textContent = network.changeAmount;
+          tvl.textContent = network.tvl;
+      }
+    
+      // Open sidebar when open button is clicked
+      openSidebarButton.addEventListener("click", function() {
+        sidebar.style.right = "0";
+        overlay.style.display = "block";
+        let element = document.querySelector('#the-sidebar .the-changey');
+        // Get the text content of the element
+        let textContent = element.textContent;
+        // Convert the text content to a number
+        let number = parseFloat(textContent);
+        // Check if the number is positive or negative
+        if (number > 0) {
+            // If positive, change the color to green
+            element.style.color = 'green';
+        } else if (number < 0) {
+            // If negative, change the color to red
+            element.style.color = 'red';
+        }
+      });
+    
+      // Close sidebar when close button is clicked
+      closeSidebarButton.addEventListener("click", function() {
+        sidebar.style.right = "-300px";
+        overlay.style.display = "none";
+      });
+    
+      // Close sidebar and overlay when clicking outside sidebar
+      overlay.addEventListener("click", function() {
+        sidebar.style.right = "-300px";
+        overlay.style.display = "none";
+      });
+    
+      // Open sidebar with clicked network details
+      informationCards.forEach(function(card) {
+        card.addEventListener("click", function() {
+          const network = {
+            image: card.querySelector("img").src.trim(),
+              name: card.querySelector("h4").textContent.trim(),
+              ticker: card.querySelector("span").textContent.trim(),
+              twitter: card.querySelector(".twitterz").textContent.trim(),
+              github: card.querySelector(".githubz").textContent.trim(),
+              website: card.querySelector(".websitez").textContent.trim(),
+              description: card.querySelector(".descriptionz").textContent.trim(),
+              namez: card.querySelector(".namez").textContent.trim(),
+              apr: parseFloat(card.querySelector(".green-percent").textContent.trim()),
+              stakedAmount: card.querySelector(".stake-value .the-stakedz").textContent.trim(),
+              changeAmount: card.querySelector(".changez").textContent.trim(),
+              tvl: card.querySelector(".pricez").textContent.trim()
+          };
+  
+          updateSidebarContent(network);
+  
+          sidebar.style.right = "0";
+          overlay.style.display = "block";
+          let element = document.querySelector('#the-sidebar .the-changey');
+        // Get the text content of the element
+        let textContent = element.textContent;
+        // Convert the text content to a number
+        let number = parseFloat(textContent);
+        // Check if the number is positive or negative
+        if (number > 0) {
+            // If positive, change the color to green
+            element.style.color = 'green';
+        } else if (number < 0) {
+            // If negative, change the color to red
+            element.style.color = 'red';
+        }
+        });
+      });
+  });
+  
+  </script>
+  
+  <script src="/js/network.js"></script>
