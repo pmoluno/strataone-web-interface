@@ -53,6 +53,10 @@ const networksP = [
     {
         name: "KYVE Network",
         ticker: "kyve-network",
+    },
+    {
+        name: "Fetch.ai",
+        ticker: "fetch-ai",
     }
 ];
 
@@ -300,6 +304,24 @@ const networkFAQs = [
                 answer: "The CMDX token is used for governance, staking, and transaction fee payment within the Comdex ecosystem."
             }
         ]
+    },
+    {
+        "name": "Fetch.ai",
+        "ticker": "FET",
+        "faqs": [
+            {
+                "question": "What products does Fetch.ai offer?",
+                "answer": "Fetch.ai offers a decentralized network for autonomous agents, which can be used in various applications such as supply chain optimization, smart cities, and energy grid management."
+            },
+            {
+                "question": "How is Fetch.ai contributing to the blockchain ecosystem?",
+                "answer": "Fetch.ai contributes to the blockchain ecosystem by providing infrastructure for autonomous agents to interact with each other, enabling efficient data sharing and resource management."
+            },
+            {
+                "question": "What is the utility of the FET token?",
+                "answer": "The FET token is used for staking, transaction fees, and as a medium of exchange within the Fetch.ai ecosystem, incentivizing network participants and ensuring secure operations."
+            }
+        ]
     }
 ];
 
@@ -315,6 +337,7 @@ const validatorAddresses = {
     'Human.AI': 'humanvaloper159m5jjsaaamdaw3wd5edrcpj5de6q0avukkpyr', 
     'KYVE Network': 'kyvevaloper109yg6yhcyy5mfyteqmcn3pjca9nu9s39ts90d9', 
     'ZetaChain': 'zetavaloper19ge4myhgmcawn7ny8jrqvmc20czvkkjcw8wvh4', 
+    'Fetch.ai': 'fetchvaloper109yg6yhcyy5mfyteqmcn3pjca9nu9s39ch77en', 
   };
 
   let networks = [
@@ -475,6 +498,18 @@ const validatorAddresses = {
       description: "KYVE provides Data Rollups-as-a-Service, unlocking next-level scalability for blockchains and rollups.",
       tvl: "1k",
       staked: "12k KYVE",
+    },
+    {
+        "name": "Fetch.ai",
+        "image": "/images/coin-icons/fetchai.webp",
+        "ticker": "FET",
+        "apr": "10",
+        "twitter": "https://twitter.com/fetch_ai",
+        "github": "#",
+        "website": "https://fetch.ai/",
+        "description": "Fetch.ai provides a decentralized network for autonomous agents, enabling smart infrastructure and optimization across industries.",
+        "tvl": "118k",
+        "staked": "99k FET"
     }
   ];
   
