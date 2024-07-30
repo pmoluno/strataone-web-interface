@@ -1,0 +1,319 @@
+<div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light mb-1">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn sidebar-toggle-btn">
+          <i class="fas fa-align-left"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-5">
+          <div class="dashboard-page-name">
+            <h2 class="mb-0">Sign up Statistics</h2>
+          </div>
+          <canvas id="myChart"></canvas>
+  
+          <script>
+            // Example data (replace this with your actual data)
+            const dates = [
+              "2024-01-01",
+              "2024-01-02",
+              "2024-01-03",
+              "2024-01-04",
+              "2024-01-05",
+              "2024-01-06",
+              "2024-01-07",
+            ];
+            const signups = [10, 15, 20, 18, 15, 10, 30];
+  
+            // Create a new chart context
+            const ctx = document.getElementById("myChart").getContext("2d");
+  
+            // Create the bar chart
+            const myChart = new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: dates,
+                datasets: [
+                  {
+                    label: "Number of Signups",
+                    data: signups,
+                    backgroundColor: "#F18F01", // White color with some transparency
+                    borderColor: "#F18F01", // White color for border
+                    borderWidth: 1,
+                  },
+                ],
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                  },
+                },
+                plugins: {
+                  tooltip: {
+                    enabled: true, // Disable tooltips
+                  },
+                  legend: {
+                    display: false, // Disable legend
+                  },
+                },
+              },
+              width: 400,
+              height: 400,
+            });
+          </script>
+        </div>
+        <div class="col-md-6 mb-5">
+            <div class="dashboard-page-name">
+              <h2 class="mb-0">Pageviews Statistics</h2>
+            </div>
+            <canvas id="myChartTwo"></canvas>
+    
+            <script>
+              // Example data (replace this with your actual data)
+              const datesTwo = [
+                "2024-01-01",
+                "2024-01-02",
+                "2024-01-03",
+                "2024-01-04",
+                "2024-01-05",
+                "2024-01-06",
+                "2024-01-07",
+              ];
+              const signupsTwo = [10, 15, 20, 18, 25, 50, 30];
+    
+              // Create a new chart context
+              const ytx = document.getElementById("myChartTwo").getContext("2d");
+    
+              // Create the bar chart
+              const myChartTwo = new Chart(ytx, {
+                type: "bar",
+                data: {
+                  labels: datesTwo,
+                  datasets: [
+                    {
+                      label: "Number of Pageviews",
+                      data: signupsTwo,
+                      backgroundColor: "#F18F01710", // White color with some transparency
+                      borderColor: "#F18F017", // White color for border
+                      borderWidth: 1,
+                    },
+                  ],
+                },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                    },
+                  },
+                  plugins: {
+                    tooltip: {
+                      enabled: true, // Disable tooltips
+                    },
+                    legend: {
+                      display: false, // Disable legend
+                    },
+                  },
+                },
+                width: 400,
+                height: 400,
+              });
+            </script>
+          </div>
+        <div class="col-md-6 mb-5">
+          <div class="dashboard-page-name">
+            <h2 class="mb-0">Dashboard Statistics</h2>
+          </div>
+          <div class="row the-stats">
+            <div class="col-6">
+                <div class="glass">
+                  <h2>1,502</h2>
+                  <h3><a href="">Pageview(s)</a></h3>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="glass">
+                  <h2>137</h2>
+                  <h3><a href="">Visitor(s)</a></h3>
+                </div>
+              </div>
+            <div class="col-6">
+              <div class="glass">
+                <h2>13</h2>
+                <h3><a href="">Online</a></h3>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="glass">
+                <h2>450</h2>
+                <h3><a href="">User(s)</a></h3>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="glass">
+                <h2>8</h2>
+                <h3><a href="">Admin(s)</a></h3>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="glass">
+                <h2>281</h2>
+                <h3><a href="">Active</a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-5">
+          <div class="dashboard-page-name">
+            <h2 class="mb-0">Blog Statistics</h2>
+          </div>
+          <div class="the-dashboard-snippet-content">
+            <% for(let i = 0; i < 4; i++){ %>
+            <div class="glass">
+                <div class="row">
+                    <div class="col-10">
+                        <h3>
+                            <a href="" style="font-size: 10px;"
+                              >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et
+                              tempore ratione nobis.</a
+                            >
+                          </h3>
+                    </div>
+                    <div class="col-2">
+                        <p>245</p>
+                    </div>
+                </div>
+              
+            </div>
+            <% } %>
+            <a href="" class="see-more-items">SEE MORE</a>
+          </div>
+        </div>
+        
+        <div class="col-md-12 mb-5 d-none">
+          <div class="dashboard-page-name">
+            <h2 class="mb-0">Airdrop Statistics</h2>
+          </div>
+          <div class="the-dashboard-snippet-content">
+            <div class="row">
+              <div class="col-md-6">
+                  <div class="container glass">
+                      <canvas id="myPieChart" height="" class="img-fluid"></canvas>
+                  </div>
+  
+                <script>
+                  // Example data (replace this with your actual data)
+                  const participants = {
+                      approved: 75,
+                      notApproved: 25
+                  };
+          
+                  // Create a new chart context
+                  const mtx = document.getElementById('myPieChart').getContext('2d');
+          
+                  // Create the pie chart
+                  const myPieChart = new Chart(mtx, {
+                      type: 'pie',
+                      data: {
+                          labels: ['Approved', 'Not Approved'],
+                          datasets: [{
+                              data: [participants.approved, participants.notApproved],
+                              backgroundColor: ['#36a2eb', '#ff6384'], // Blue and Red colors
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          responsive: false, // Set to false to prevent resizing the canvas
+                          maintainAspectRatio: false, // Set to false to allow custom width and height
+                      }
+                  });
+              </script>
+              </div>
+              <div class="col-md-6">
+                  <div class="row the-stats">
+                      <div class="col-12">
+                        <div class="glass">
+                          <h2>13</h2>
+                          <h3><a href="">Campaign(s)</a></h3>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="glass">
+                          <h2>100,081</h2>
+                          <h3><a href="">participant(s)</a></h3>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="glass">
+                          <h2>4,565</h2>
+                          <h3><a href="">Token(s)</a></h3>
+                        </div>
+                      </div>
+                      
+                    </div>
+              </div>
+            </div>
+            <a href="" class="see-more-items">SEE MORE</a>
+          </div>
+        </div>
+        <div class="col-md-6 mb-5">
+            <div class="dashboard-page-name">
+              <h2 class="mb-0">Recent Sign ups</h2>
+            </div>
+            <div class="the-dashboard-snippet-content">
+              <div class="glass">
+                <div class="row">
+                  <div class="col-4 the-table-name">USERNAME</div>
+                  <div class="col-4 the-table-name">REFEREE</div>
+                  <div class="col-4 the-table-name">DATE</div>
+                </div>
+                <hr class="p-0 m-0" />
+                <% for(let i = 0; i < 15; i++){ %>
+                <div class="row the-sign-ups">
+                  <div class="col-4">
+                    <p class="username">Fedora</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="referee">Default</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="date">20-12-2024</p>
+                  </div>
+                </div>
+                <hr class="p-0 m-0" />
+                <% } %>
+              </div>
+    
+            </div>
+          </div>
+        <div class="col-md-6 mb-5">
+          <div class="dashboard-page-name">
+            <h2 class="mb-0">Latest Anouncement</h2>
+          </div>
+          <div class="the-dashboard-snippet-content">
+            <% for(let i = 0; i < 6; i++){ %>
+            <div class="glass">
+                <div class="row">
+                    <div class="col-10">
+                        <h3>
+                            <a href=""
+                              >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et
+                              tempore ratione nobis.</a
+                            >
+                          </h3>
+                    </div>
+                    <div class="col-2">
+                        <p>345</p>
+                    </div>
+                </div>
+              
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
