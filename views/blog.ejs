@@ -1,0 +1,152 @@
+<section id="blog-hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mb-1 mt-2">
+            <h1 class="blog-home-heading">
+              <%= authored_blogs %>
+            </h1>
+            <div class="blog-hero-search pt-5 d-none">
+              <form action="/blog/search" method="get" class="d-flex">
+                <input
+                    type="text"
+                    name="query"
+                    class="search-blog-input form-control"
+                    placeholder="Explore Content Archive"
+                  />
+                  <button type="submit" class="search-blog-btn"><%= search %></button>
+              </form>
+            </div>
+          </div>
+        </div>
+         
+      </div>
+    </div>
+  </section>
+  
+  <div class="row">
+    <div class="col-md-8">
+        <section id="blog-home-posts">
+            <div class="container">
+              <div class="row">
+                <% if(posts.length > 0){ %>
+                <% for(let i = 0 ; i < posts.length; i++){ %>
+                  <div class="col-md-6 mb-4">
+                    <div class="blog-home-post-snipet">
+                      <div class="blog-home-img">
+                        <img
+                        class="img-fluid"
+                        style="height: 200px"
+                        alt=""
+                        srcset=""
+                        src= <%= posts[i].image %>
+                        />
+                      </div>
+                      <div class="blog-home-content container">
+                        <div class="cartegory-and-date">
+                          <p class="mb-1 pt-3">
+                            <%= posts[i].category %> <span class="small-bold">| <%= posts[i].createdAt.toDateString() %></span>
+                          </p>
+                        </div>
+                        <h2>
+                          <a href="/blog/<%= posts[i].slug %>">
+                          <%= posts[i].title %>
+                          </a>
+                        </h2>
+                        <p class="blog-post-description ">
+                          <%= posts[i].description.substring(0, 65) + "..." %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <%} } %>
+              </div>
+              <div class="pagination-style">
+                <% if (pageCount > 1) { %>
+                  <% if (currentPage > 1) { %>
+                    <a href="/blog/?page=<%= currentPage - 1 %>">Previous</a>
+                  <% } %>
+            
+                  <% for (let i = 1; i <= pageCount; i++) { %>
+                    <% if (i === currentPage) { %>
+                      <span class=""><%= i %></span>
+                    <% } else { %>
+                      <a href="/blog/?page=<%= i %>"><%= i %></a>
+                    <% } %>
+                  <% } %>
+            
+                  <% if (currentPage < pageCount) { %>
+                    <a href="/blog/?page=<%= currentPage + 1 %>">Next</a>
+                  <% } %>
+                <% } %>
+              </div>
+            </div>
+            <div class="container">
+                <div class="platfrom-banner">
+                    <h2 class="pb-3"><%= earn_rewards_news %></h2>
+                    <p class="pb-3"><%= register_tasks %></p>
+                    <a href="#" class="btn btn-pulse rounded-pill"><%= stake_now %></a>
+                </div>
+            </div>
+          </section>
+    </div>
+    <div class="col-md-4">
+        <div class="blog-home-cartegory container" style="text-align: left;">
+            <h4 class="pb-3"><%= filter_topics %></h4>
+            <div class="row">
+              <div class="blog-home-cat col"><a href="/blog"><span class="small-bold"><%= all %></span></a></div>
+              <% for(let i = 0 ; i < postCategories.length; i++){ %>
+                <div class="blog-home-cat col"><span class="small-bold"><a href="#"><%= postCategories[i] %> </a></span></div>
+              <%}%>
+            </div>
+            <h4 class="pb-3 pt-5"><%= featured_article %></h4>
+            <div class="row">
+                <% if(posts.length > 0){ %>
+                <% for(let i = 0 ; i < 1; i++){ %>
+                  <div class="col-md-12 mb-4">
+                    <div class="blog-home-post-snipet">
+                      <div class="blog-home-img">
+                        <img
+                        class="img-fluid"
+                        style="height: 200px"
+                        alt=""
+                        srcset=""
+                        src= <%= posts[i].image %>
+                        />
+                      </div>
+                      <div class="blog-home-content container">
+                        <div class="cartegory-and-date">
+                          <p class="mb-1 pt-3">
+                            <%= posts[i].category %> <span class="small-bold">| <%= posts[i].createdAt.toDateString() %></span>
+                          </p>
+                        </div>
+                        <h2  class="pb-3">
+                          <a href="/blog/<%= posts[i].slug %>">
+                          <%= posts[i].title %>
+                          </a>
+                        </h2>
+                        <p class="blog-post-description  d-none">
+                          <%= posts[i].description.substring(0, 65) + "..." %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <%} } %>
+              </div>
+            <h4 class="pb-3 pt-5"><%= follow_socials %></h4>
+            <div class="">
+                <a href="#" class="footer-icon"
+                  ><i class="bi bi-twitter"></i
+                ></a>
+                <a href="#" class="footer-icon"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" class="footer-icon"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+              </div>
+          </div>
+    </div>
+  </div>
+  
+  
