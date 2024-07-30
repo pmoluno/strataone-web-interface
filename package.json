@@ -14,5 +14,16 @@
     "mongoose": "^8.5.1",
     "mongoose-slug-generator": "^1.0.4",
     "multer": "^1.4.5-lts.1"
-  }
+  },
+  "name": "strataone-web-interface",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC"
 }
