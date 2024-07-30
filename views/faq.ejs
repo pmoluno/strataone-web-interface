@@ -1,0 +1,35 @@
+<section id="history-section" class="pb-5 pt-0" style="background-color: #0e0e1afa">
+    <div class="the-black-strip" style="padding-top: 150px">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6"><h2><%= faq_on %> <%= theNetworkName %> </h2></div>
+        </div>
+      </div>
+    </div>
+    <div class="container pt-5 mt-5 pb-5 mb-5 the-about-history">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+              <% theFaq.forEach((faq, index) => { %>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-heading<%= index %>">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<%= index %>" aria-expanded="<%= index === 0 %>" aria-controls="panelsStayOpen-collapse<%= index %>">
+                      <%= faq.question %>
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapse<%= index %>" class="accordion-collapse collapse <%= index === 0 ? 'show' : '' %>" aria-labelledby="panelsStayOpen-heading<%= index %>">
+                    <div class="accordion-body">
+                      <%= faq.answer %>
+                    </div>
+                  </div>
+                </div>
+              <% }); %>
+            </div>
+            
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </section>
+  
