@@ -1,0 +1,70 @@
+<div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light mb-1">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn sidebar-toggle-btn">
+          <i class="fas fa-align-left"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-5">
+          <div class="dashboard-page-name">
+            <h2 class="mb-0">List Of Administrators</h2>
+          </div>
+          <div class="the-dashboard-snippet-content">
+            <% for(let i = 0; i < 4; i++){ %>
+            <div class="glass">
+                <div class="row">
+                    <div class="col-10">
+                        <h3>
+                            <a href=""
+                              >Petersonwww@gmail.com</a
+                            >
+                          </h3>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="" class="" style="color: red;"><i class="bi bi-trash3-fill"></i></a>
+                            </div>
+                            <div class="col-6">
+                                <a href="" class="" style="color: black;"><i class="bi bi-pencil-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+            <% } %>
+          </div>
+    
+        </div>
+        <div class="col-md-6 mb-5">
+          <div class="dashboard-page-name">
+            <h2 class="mb-0">Add New Administrator</h2>
+          </div>
+          <div class="row">
+            <form action="" disabled class="transparency-input">
+                <div class="mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-style-2 form-control">Add New Administrator</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
