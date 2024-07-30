@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <meta
+      property="og:title"
+      content=""
+    />
+    <meta
+      property="og:description"
+      content=""
+    />
+    <meta property="og:image" content="/images/card.png" />
+    
+    <%- include ('../partials/header') %>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Strata One - Admin Dashboard</title>
+  </head>
+  <body>
+    <!-- <div class="loader_bg">
+      <div class="loader"></div>
+    </div> -->
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+    <div class="fixed-item">
+      <div class="sidebar-header">
+        <h4 class="pt-3 pb-5">
+          <img src="/images/logo.svg" class="gif-logo img-fluid" /> Strata One
+        </h4>
+      </div>
+
+      <div class="container pb-5 mb-5">
+        <ul class="">
+          <li class="mb-2">
+            <a href="/dashboard"><i class="fab fa-windows pe-4"></i>Dashboard</a>
+          </li>
+          <li class="mb-2">
+            <a href="/dashboard/analytics"><i class="bi bi-activity pe-4"></i>Analytics</a>
+          </li>
+          <hr class="mb-2" />
+          <li class="mb-2">
+            <a href="/dashboard/articles"><i class="bi bi-newspaper pe-4"></i>Articles</a>
+          </li>
+          <li class="mb-2 d-none">
+            <a href="/dashboard/validators"><i class="bi bi-check2-all pe-4"></i>Validators</a>
+          </li>
+          <li class="mb-2 d-none">
+            <a href="/dashboard/validators"><i class="bi bi-droplet-half pe-4"></i>Airdrop</a>
+          </li>
+          <li class="mb-2">
+            <a href="/dashboard/settings"><i class="fas fa-cog pe-4"></i>Settings</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container pt-3 mt-5">
+        <ul class="">
+          <li class="mb-2 mini-profile d-none">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 profile-name">
+                  <span>Admin Account</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="mb-2">
+            <a href="/logout" class=""><i class="fas fa-sign-out-alt  pe-4" style="color: red;"></i>Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+   
+  </nav>
+
+  <!-- Page Content  -->
+  <%- body %>
+
+</div>
+
+<%- include ('../partials/footer') %>
+<script src="/js/admin.js"></script>
+</body>
+</html>
