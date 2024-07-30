@@ -1,0 +1,292 @@
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.sidebar-toggle-btn, .sidebar-toggle-btn:focus, .sidebar-toggle-btn:active, .sidebar-toggle-btn:hover{
+    background-color: #9683eb!important;
+    box-shadow: none !important;
+    border: 0 !important;
+    color: #ffffff;
+}
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+.btn-post{
+    background-color: #0e0e1a;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+.single-blog-post h1{
+    font-size: 30px;
+}
+#blog-post-body h2{
+    font-size: 30px;
+}
+#blog-post-body h3{
+    font-size: 30px;
+}
+#blog-post-body img {
+    max-width: 100%; /* Ensures images don't exceed the container width */
+    height: auto; /* Allows the height to adjust proportionally */
+    display: block; /* Removes extra space beneath the image */
+    margin: 0 auto; /* Centers the image horizontally */
+  }
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+.fixed-item{
+    position: fixed;
+}
+#content {
+    /* background-color: #d4dcff; */
+    background: hsla(120, 4%, 95%, 1);
+    background: linear-gradient(90deg, hsla(120, 4%, 95%, 1) 0%, hsla(0, 0%, 100%, 1) 54%);
+    background: -moz-linear-gradient(90deg, hsla(120, 4%, 95%, 1) 0%, hsla(0, 0%, 100%, 1) 54%);
+    background: -webkit-linear-gradient(90deg, hsla(120, 4%, 95%, 1) 0%, hsla(0, 0%, 100%, 1) 54%);
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+.ql-code-block{
+    background-color: #0e0e1a;
+    position: relative;
+    border-radius: 8px;
+    padding: 50px 30px;
+    color: white;
+}
+.platfrom-banner{
+    margin-top: 50px;
+    padding: 70px 30px;
+    color: white;
+    text-align: center;
+    background-color: #0e0e1a;
+    border-radius: 10px;
+}
+.platfrom-banner p{
+    color: white;
+}
+.platfrom-banner h2{
+    color: white;
+}
+.platfrom-banner .btn{
+    color: white;
+    border: 5px double #ffffff;
+}
+.top-right-copy-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgba(255, 255, 255, 0.904);
+    font-weight: 700;
+    background-color: #0e0e1a;
+    padding-right: 15px;
+    padding-top: 10px;
+    border: 0;
+    border-radius: 10px;
+    font-size: 12px;
+}
+.ql-ui{
+    display: none;
+}
+
+
+/* THE CONTENT */
+
+.right{
+    text-align: right;
+}
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+.search-blog-btn{
+    font-size: 15px;
+    background-color: #9683eb;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    margin-left: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.search-blog-input{
+    font-size: 18px;
+    background-color: #9683eb5b;
+    color: #0b3954;
+    border-radius: 10px;
+    border: 1px solid #a5a5a5;
+    max-width: 700px;
+}
+.small-bold{
+    color: #F18F01;
+    font-weight: 700;
+}
+.big-bold{
+    color: #0b3954;
+    font-size: 25px;
+    font-weight: 700;
+}
+.blog-home-post-snipet{
+    border-radius: 10px;
+    border: 0.5px solid #a3a3a3;
+}
+.blog-home-post-snipet img{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    /* height: 200px; */
+    width: 100%;
+}
+.blog-home-post-snipet h2{
+    font-size: 15px;
+    font-weight: 700;
+}
+.blog-home-post-snipet i{
+    font-size: 30px;
+    color: #9683eb;
+}
+.blog-home-post-snipet audio{
+    width: 100%;
+    background-color: rgba(149, 130, 234, 0.612);
+}
+.blog-home-cartegory{
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.blog-home-cartegory h4{
+    font-size: 20px;
+}
+.cartegory-and-date p{
+    font-size: 12px;
+}
+.blog-home-cat{
+    text-transform: capitalize;
+    padding: 5px 10px;
+    border: 0.5px solid #a3a3a3;
+    border-radius: 20px; 
+    margin: 0px 5px;
+    margin-bottom: 5px;
+}
+.blog-home-cat a{
+    font-size: 12px;
+}
+.blog-home-post-snipet audio::-webkit-media-controls-panel{
+    background-color: #9683ebb7 !important;
+  }
+.blog-post-description{
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: 500;
+    color: #a5a5a5;
+}
+#blog-post-body p{
+    font-size: 18px !important;
+}
+.blog-home-heading{
+    margin-top: 50px;
+    font-size: 25px;
+}
+#content{
+    padding-top: 0px;
+}
+#blog-hero-section{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#blog-home-posts{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#single-post{
+    padding-top: 20px;
+}
+.single-post-featured-image{
+    width: 100%;
+    /* height: 600px; */
+    border-radius: 10px;
+}
+.share-and-post-audio{
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.share-and-post-audio a i{
+    color: #9683eb;
+    font-size: 32px;
+    padding: 5px;
+}
+.single-blog-audio{
+    height: 30px;
+    padding-top: 10px;
+    color: #0b3954;
+}
+.single-blog-audio::-webkit-media-controls-panel{
+    background-color: #9683ebb7;
+}
+.lowercase{
+    text-transform: lowercase;
+}
+#blog-post-body p{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+#blog-post-body li{
+    list-style: circle;
+}
+#blog-post-body a{
+    text-decoration: underline;
+    font-weight: 600;
+    color: #e9c92a !important;
+}
+.prev{
+    font-size: 25px;
+    color: #9683eb;
+    padding-right: 20px;
+}
+.next{
+    font-size: 25px;
+    color: #9683eb;
+}
+.cover-img-feature{
+    background-size: cover;
+}
+.pagination-style{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.pagination-style a{
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    background-color: rgb(170, 155, 15);
+    color: #fff;
+    text-transform: capitalize;
+}
+.pagination-style span{
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    background-color: #9683eb;
+    color: #fff;
+    text-transform: capitalize;
+}
