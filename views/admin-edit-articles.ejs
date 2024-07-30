@@ -1,0 +1,93 @@
+<div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light mb-1">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn sidebar-toggle-btn">
+          <i class="fas fa-align-left"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-5">
+          <div class="dashboard-page-name"></div>
+          <div class="row">
+            <div class="col-6">
+              <a href="" class="btn btn-secondary btn-style form-control"
+                >NEW ARTICLE</a
+              >
+            </div>
+            <div class="col-6">
+              <a href="" class="btn btn-secondary btn-style form-control"
+                >NEW NEWSLETTER</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mb-5">
+          <div class="dashboard-page-name">
+            <h2 class="mb-0">Edit An Article</h2>
+          </div>
+          <div class="the-dashboard-snippet-content">
+            <form action="/dashboard/add-article" method="post"  encType="multipart/form-data" class="transparency-input">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="glass">
+                          <div class="mb-3">
+                              <label for="title">Article Title</label>
+                              <input id="title" type="text" name="title" class="form-control" value="<%= post.title %>">
+                          </div>
+                          <div class="mb-3">
+                              <input type="text" name="username" value="Fedora" class="form-control d-none">
+                          </div>
+                          
+                          <div class="mb-3">
+                              <div id="editor-container" style="height: 300px;">
+                              </div>
+                              <textarea name="content" id="quill-content" placeholder="Content ..." cols="30" rows="10" class="form-control d-none"></textarea>
+                            </div>
+                          <div class="mb-3">
+                              <label for="description">Article Description</label>
+                              <input id="description" type="text" name="description" class="form-control" value="<%= post.description %>">
+                          </div>
+                          <div id="post-content" class="post-content d-none"></div>
+                                      <script>
+                                        let newPost =  "<%= post.content %>"; 
+                                        let postData = document.getElementById('post-content');
+                                        let editor = document.getElementById("editor-container");
+                                        postData.innerHTML = newPost;
+                                        postData.innerHTML = postData.textContent;
+                                        editor.innerHTML = postData.innerHTML;
+                                      </script>
+                          <div class="form-group floating-label-form-group controls d-none">
+                            <label>Post ID</label>
+                            <input type="text" name="postid" placeholder="postid" id="postid" value="<%= post.id %>" class="form-control d-none">
+                          </div>
+                          <div class="form-group mb-3 d-none">
+                              <input type="file" name="image"  class="form-control-file">
+                            </div>
+                  </div>
+                </div>
+                <div class="col-md-4 ">
+                  <div class="glass">
+                      <div class="mb-3">
+                          <label>Choose Article Category</label>
+                          <input id="category" type="text" name="category" class="form-control" value="<%= post.category %>">
+                      </div>
+                      <div class="mb-3">
+                          <label>Comma Seperated Tags</label>
+                          <input type="text" class="form-control">
+                      </div>
+                      
+                        <div class="mb-3">
+                          <button type="submit" class="btn btn-style-2 add-post form-control update-button-post"> Update Article</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
