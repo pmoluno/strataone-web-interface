@@ -24,6 +24,17 @@ i18n.configure({
 
 
 // Route handlers
+router.post("/upload", (req, res) => {
+  const {
+      image
+  } = req.files
+
+  image.mv(path.resolve(__dirname, '..', 'public/posts', image.name), (error) => {
+      let imageUrl = `/posts/${image.name}`;
+      res.json({imageUrl: imageUrl})
+  })
+});
+
 router.get("/", (req, res) => renderPage(req, res, 'home'));
 router.get("/network", (req, res) => renderPage(req, res, 'network', true));
 router.get("/calculator", (req, res) => renderPage(req, res, 'calculator', true));
@@ -60,7 +71,6 @@ async function renderPage(req, res, view, fetchPrices = false, additionalData = 
   translationKeys.forEach(key => {
     translations[key] = res.__(key);
   });
-
   const currentLocale = req.cookies.locale || 'en';
   const currentLanguage = languages[currentLocale];
 
@@ -88,7 +98,6 @@ async function renderPage(req, res, view, fetchPrices = false, additionalData = 
     ...translations,
     ...additionalData
   };
-
   if (thePrice) {
     pageData.thePrice = thePrice;
   }
