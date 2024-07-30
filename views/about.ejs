@@ -1,0 +1,158 @@
+<section class="home-hero-section pb-5" style="padding-top: 100px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="hero-content">
+            <h1><%= about_strata_one %></h1>
+            <h2><%= tcv %></h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="hero-fancy-button">
+            <div class="row">
+              <div class="col-6 falling-element-2">
+                  <a
+                    class="btn btn-fancy-hero rounded-pill btn-pulse"
+                    href="/"
+                    ><%= home %></a
+                  >
+                </div>
+              <div class="col-6 falling-element">
+                <a
+                  class="btn btn-fancy-hero rounded-pill btn-pulse"
+                  href="#history-section"
+                  ><%= history %></a
+                >
+              </div>
+              <div class="col-12 falling-element-2">
+                <a
+                  class="btn btn-fancy-hero rounded-pill btn-pulse"
+                  href="#team-section"
+                  ><%= teamz %></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="history-section" class="pb-5 pt-0" style="background-color: #0e0e1afa;">
+    <div class="the-black-strip">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6"><h2><%= history %></h2></div>
+          <div class="col-md-6">
+            <p>
+              <span>"</span><%= founded %><span>"</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container pt-5 mt-5 pb-5 mb-5 the-about-history">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="white">
+           <%= journey %>
+  
+          </p>
+          <h3 style="color:#e9c92a">
+            <%= evolution %>
+          </h3>
+          <p class="white">
+           <%= over %>
+  
+          </p>
+          <h3 style="color:#e9c92a">
+            <%= expertise %>
+          </h3>
+          <p class="white">
+           <%= expert %>
+          </p>
+          <a href="/platform" class="btn btn-secondary btn-style mt-3 mb-5"
+            ><%= stake_with_us %></a
+          >
+        </div>
+        <div class="col-md-6">
+          <div class="hero-fancy-button">
+            <div class="row">
+              <div class="col-12 falling-element">
+                <a class="btn btn-fancy-hero rounded-pill btn-pulse" href="/platform"><%= stake_now %></a>
+              </div>
+              <div class="col-6 falling-element-2">
+                <a class="btn btn-fancy-hero rounded-pill btn-pulse" href="/calculator"
+                  ><%= calculator %></a
+                >
+              </div>
+              <div class="col-6 falling-element-2">
+                <a
+                  class="btn btn-fancy-hero rounded-pill btn-pulse"
+                  href="/contact-us"
+                  ><%=  contact %></a
+                >
+              </div>
+              <div class="col-12 falling-element">
+                <a
+                  class="btn btn-fancy-hero rounded-pill btn-pulse"
+                  href="/network"
+                  ><%= network %></a
+                >
+              </div>
+              <div class="col-6 falling-element-2">
+                <a
+                  class="btn btn-fancy-hero rounded-pill btn-pulse"
+                  href="https://docs.strataone.io"
+                  ><%= guide %></a
+                >
+              </div>
+              <div class="col-6 falling-element-2 ">
+                <a class="btn btn-fancy-hero rounded-pill btn-pulse" href="/blog"
+                  ><%= blog %></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="team-section" class="pt-0" style="background-color: #0e0e1afa;">
+    <div class="the-black-strip">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6"><h2><%= team_member %></h2></div>
+          <div class="col-md-6">
+            <p>
+              <span>"</span>
+              <%= team_des %> <span>"</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p class="team-desc white">
+        <%= team_des_two %>
+      </p>
+      <div class="row">
+        <% for(let i = 0; i < team.length; i++){ %>
+        <div class="col-md-3 mb-3">
+          <div class="the-team-profile" style="background: url(<%= team[i].image %>); background-position: center; background-repeat: no-repeat; background-size: contain; background-size: 100% 100%">
+            <p class="name"> <%= team[i].name %> </p>
+            <p class="position"><%= team[i].position %></p>
+            <p class="desc d-none">
+              <%= team[i].description %>
+            </p>
+            <div class="itema">
+              <a href="<%= team[i].linkedin %>" class="pe-2"><i class="bi bi-linkedin"></i></a>
+              <a href="<%= team[i].twitter %>" class="pe-2"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  
