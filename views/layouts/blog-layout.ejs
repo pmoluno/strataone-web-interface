@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="<%= description %>"
+    />
+
+     <meta
+      property="og:title"
+      content="<%= title %>"
+    />
+    <meta
+      property="og:description"
+      content="<%= description %>"
+    />
+    <meta property="og:image" content="<%= image %>" />
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+   
+    <%- include ('../partials/header') %>
+    <link rel="stylesheet" href="/css/blog.css">
+    <title><%= title %></title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-427953999"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-427953999'); </script>
+  </head>
+  <body>
+    <!-- <div class="loader_bg">
+      <div class="loader"></div>
+    </div> -->
+   
+        <nav class="navbar navbar-expand-lg fixed-top me-3 ms-3 mt-3">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+              <img src="/images/logo.svg" class="gif-logo img-fluid" />
+              Strata One</a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span
+                class="menu"
+                onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+                aria-label="Main Menu"
+              >
+                <svg width="30" height="30" viewBox="0 0 100 100">
+                  <path
+                    class="line line1"
+                    d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
+                  />
+                  <path class="line line2" d="M 20,50 H 80" />
+                  <path
+                    class="line line3"
+                    d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="container-fluid d-lg-flex mt-3 mt-md-0">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                  <li class="nav-item ms-lg-auto pe-3 d-none">
+                    <a class="nav-link" href="/"><%= home %></a>
+                  </li>
+                  <li class="nav-item  pe-md-3 d-none">
+                    <a class="nav-link" href="/network"><%= network %></a>
+                  </li>
+                  <li class="nav-item  pe-md-3">
+                    <a class="nav-link" href="/calculator"><%= reward_calculator %></a>
+                  </li>
+                  <li class="nav-item  pe-md-3">
+                    <a class="nav-link" href="/blog"><%= blog %></a>
+                  </li>
+                  <li class="nav-item  pe-md-3 ">
+                    <a class="nav-link" href="https://docs.strataone.io"><%= guide %></a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="flag-icon <%= currentLanguage.icon %>"></span> <%= currentLanguage.name %>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <% for (let lang in languages) { %>
+                        <li>
+                          <a class="dropdown-item" href="/?lang=<%= lang %>">
+                            <span class="flag-icon <%= languages[lang].icon %>"></span> <%= languages[lang].name %>
+                          </a>
+                        </li>
+                      <% } %>
+                    </ul>
+                  </li>
+                  <li class="nav-item d-none">
+                    <a
+                      class="nav-link btn btn-secondary btn-style mt-1 normal-font"
+                      href="/network"
+                      style="color: #e7c905 !important; font-weight: normal;"
+                      ><%= stake %></a
+                    >
+                  </li>
+    
+              </ul>
+              
+            </div>
+          </div>
+           </nav>
+        <section class="the-page-heading mt-0">
+            <div class="container">
+            <h2 class="pt-5"> <a href="/blog">Blog</a></h2>
+            </div>
+        </section>
+        <div class="container">
+           <%- body %>
+        </div>
+        
+    <section id="footer-section" class="pt-5">
+      <div class="container">
+        <div class="container newsletter">
+          <div class="row vertical-center">
+            <div class="col-md-5">
+              <div class="container">
+                <p class="newsletter-tag"><%= newsletter %></p>
+                <h2 class="pb-3" id="mail-message"><%= premium_newsletter %></h2>
+                <form class="d-flex" id="subscribe-form">
+                  <input
+                    class="form-control email-input"
+                    type="email"
+                    name="email"
+                  />
+                  <input type="text" name="_honey" class="d-none" />
+                
+                  <button
+                    type="submit"
+                    class="btn btn-secondary ms-2 btn-style-5 capitalize"
+                  >
+                  <%= subscribe %>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 mt-5 br-1 bl-1">
+              <div class="container">
+                <p class="newsletter-icon"><i class="bi bi-envelope"></i></p>
+                <h3 style="color: #ffffff;"><%= email %></h3>
+                <p class="small-text">hello@strataone.io</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 mt-5">
+              <div class="container">
+                <p class="newsletter-icon"><i class="bi bi-chat-dots"></i></p>
+                <h3 style="color: #ffffff;"><%= chat_24_7 %></h3>
+                <p class="small-text"><%= live_chat %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container pt-5 pb-5">
+          <div class="row">
+            <div class="col-12 col-md-3">
+             <a href="" style="color: #e9c92a !important;"><img src="/images/logo.svg" class="img-fluid" style="width: 45px !important;" alt=""> Strata One</a> 
+              <p class="pt-4 pb-3" style="color: #ffffff !important; font-size: 12px;">We are a leading crypto validator company dedicated to empowering secure and resilient blockchain networks.</p>
+            </div>
+            <div class="col-6 col-md-3">
+              <h2>Resources</h2>
+              <ul class="footer-ul">
+                <li><a href="" style="color: #e9c92a !important" >About</a></li>
+                <li><a href="" style="color: #e9c92a !important" >Blog</a></li>
+                <li><a href="" style="color: #e9c92a !important" >Calculator</a></li>
+                <li><a href="" style="color: #e9c92a !important" >Tracker</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-3">
+              <h2>Legal</h2>
+              <ul class="footer-ul">
+                <li><a href="" style="color: #e9c92a !important" >Privacy Policy</a></li>
+                <li><a href="" style="color: #e9c92a !important" >Terms & Conditions</a></li>
+                <li><a href="" style="color: #e9c92a !important" >Branding</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-3">
+              <h2>Social</h2>
+              <ul class="footer-ul">
+                <li><a href="" style="color: #e9c92a !important" >X (formally Twitter)</a></li>
+                <li><a href="" style="color: #e9c92a !important" >Telegram</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="footer-end d-flex">
+          <div><%= copyright %></div>
+          <div class="ms-auto">
+            <a href="#" class="footer-icon">
+            <i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="footer-icon"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="#" class="footer-icon"
+              ><i class="bi bi-instagram"></i
+            ></a>
+          </div>
+        </div>
+  </div>
+
+   
+  <%- include ('../partials/footer') %>
+  <script src="/js/blog.js"></script>
+  </body>
+</html>
+
+
+   
