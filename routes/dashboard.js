@@ -4,6 +4,7 @@ const path = require("path");
 const { authenticateUser } = require("../middleware/auth");
 const { uploadImage } = require("../middleware/fileUpload");
 const { User, Admin, Post } = require("../models");
+const fs = require('fs');
 
 // Middleware to check if user is authenticated
 router.use(authenticateUser);
@@ -89,21 +90,57 @@ router.put('/settings', async (req, res) => {
 });
 
 // Add new article
-router.post("/add-article", uploadImage, async (req, res) => {
+router.post("/add-article", async (req, res) => {
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+
+  const { image } = req.files;
+  const uploadDir = path.resolve(__dirname, '..', 'public/posts');
+  const uploadPath = path.join(uploadDir, image.name);
+
+  // Check if the directory exists, if not create it
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
+
   try {
-    const newPost = await Post.create({
+    await image.mv(uploadPath);
+
+    const postData = {
       ...req.body,
-      image: req.file ? `/posts/${req.file.filename}` : null
-    });
+      image: `/posts/${image.name}`
+    };
+
+    await Post.create(postData);
     res.redirect("/dashboard/articles");
   } catch (error) {
-    res.status(500).render("error", { error });
+    res.status(500).send(error);
   }
 });
 
 // User settings page
 router.get("/settings", async (req, res) => {
   res.render("admin-settings", { layout: "layouts/dashboard-layout", user: req.user });
+});
+
+// Delete article
+router.get('/delete-post/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    // Find and delete the post by ID
+    const result = await Post.findByIdAndDelete(id);
+
+    if (!result) {
+      res.redirect("/dashboard/articles");
+    }
+
+    res.redirect("/dashboard/articles");
+  } catch (error) {
+    console.error(error);
+    res.redirect("/dashboard/articles");
+  }
 });
 
 module.exports = router;
