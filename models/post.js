@@ -24,7 +24,8 @@ const PostSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    trim: true
+    trim: true,
+    default: "/images/default-blog.png"
   },
   category: {
     type: String,
